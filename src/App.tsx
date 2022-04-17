@@ -1,0 +1,67 @@
+import './config/axios';
+import React, { useEffect, useState } from 'react';
+import rootStore, {StoreContext} from './model';
+import Navigator from './navigator';
+import { StatusBar, Text, View } from 'react-native';
+import PublishScreen from './pages/publish';
+import Demo from './demos/ImagePicker';
+import DemoElements from './demos/Element';
+import { NativeBaseProvider, extendTheme } from 'native-base';
+
+const theme = extendTheme({
+  colors: {
+    // Add new color
+    primary: {
+      50: '#E3F2F9',
+      100: '#C5E4F3',
+      200: '#A2D4EC',
+      300: '#7AC1E4',
+      400: '#47A9DA',
+      500: '#0088CC',
+      600: '#007AB8',
+      700: '#006BA1',
+      800: '#005885',
+      900: '#003F5E',
+    },
+    // Redefinig only one shade, rest of the color will remain same.
+    amber: {
+      400: '#d97706',
+    },
+  },
+  config: {
+    // Changing initialColorMode to 'dark'
+    initialColorMode: 'dark',
+  },
+});
+
+export default function App() {
+  const [initial, setInitial] = useState(false);
+
+  const initState = async () => {
+    await rootStore.userStore.initStateFromCache();
+    setInitial(true);
+  }
+
+  useEffect(() => {
+    initState()
+  }, [])
+
+  if (!initial) return null;
+
+  return (
+    <StoreContext.Provider value={rootStore}>
+      {/* <Demo /> */}
+      {/* <DemoElements /> */}
+      {/* <View style={{ height: 60 }}></View> */}
+      {/* <PublishDemo /> */}
+      <StatusBar
+        translucent
+        barStyle={'dark-content'}
+        backgroundColor="transparent"
+      />
+      <NativeBaseProvider theme={theme}>
+        <Navigator />
+      </NativeBaseProvider>
+    </StoreContext.Provider>
+  );
+}
