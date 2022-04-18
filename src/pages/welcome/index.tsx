@@ -1,5 +1,5 @@
 import {observer} from 'mobx-react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Image, StyleSheet, View} from 'react-native';
 import MTouchableOpacity from '../../components/MTouchableOpacity';
 import {useStore} from '../../model';
@@ -10,6 +10,12 @@ type IProps = {};
 
 const WelcomeScreen: React.FC<IProps> = ({}) => {
   const {userStore} = useStore();
+
+  useEffect(() => {
+    setTimeout(() => {
+      userStore.updateShowWelcome(false);
+    }, 2000)
+  }, [])
 
   return (
     <View style={styles.container}>
