@@ -1,6 +1,7 @@
 export const Theme = {
   primaryColor: '#f44336',
   brandColor: '#f44336',
+  mainColor: '#333333',
   secondColor: '#6d6b6b',
   grayBgColor: '#f4f5fb',
   grayBorderColor: '#ddd',

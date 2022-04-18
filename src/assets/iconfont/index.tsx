@@ -4,6 +4,14 @@
 import React, { FunctionComponent } from 'react';
 import { ViewProps } from 'react-native';
 import { GProps } from 'react-native-svg';
+import IconTongzhi from './IconTongzhi';
+import IconTongzhi1 from './IconTongzhi1';
+import IconTongzhi2 from './IconTongzhi2';
+import IconLabaY from './IconLabaY';
+import IconTongzhiY from './IconTongzhiY';
+import IconXiaoxiY from './IconXiaoxiY';
+import IconLaba from './IconLaba';
+import IconVoice401 from './IconVoice401';
 import IconNotice from './IconNotice';
 import IconNoticeO from './IconNoticeO';
 import IconClose from './IconClose';
@@ -66,6 +74,14 @@ import IconProductO from './IconProductO';
 import IconAccount from './IconAccount';
 import IconHome from './IconHome';
 import IconProduct from './IconProduct';
+export { default as IconTongzhi } from './IconTongzhi';
+export { default as IconTongzhi1 } from './IconTongzhi1';
+export { default as IconTongzhi2 } from './IconTongzhi2';
+export { default as IconLabaY } from './IconLabaY';
+export { default as IconTongzhiY } from './IconTongzhiY';
+export { default as IconXiaoxiY } from './IconXiaoxiY';
+export { default as IconLaba } from './IconLaba';
+export { default as IconVoice401 } from './IconVoice401';
 export { default as IconNotice } from './IconNotice';
 export { default as IconNoticeO } from './IconNoticeO';
 export { default as IconClose } from './IconClose';
@@ -129,7 +145,7 @@ export { default as IconAccount } from './IconAccount';
 export { default as IconHome } from './IconHome';
 export { default as IconProduct } from './IconProduct';
 
-export type IconNames = 'icon-notice' | 'icon-notice_o' | 'icon-close' | 'icon-close_bold' | 'icon-add_bold' | 'icon-add_square' | 'icon-ellipsis' | 'icon-account-outline' | 'icon-peoples' | 'icon-peoples-o' | 'icon-zhibo' | 'icon-zhibo-o' | 'icon-add' | 'icon-tongxunlu' | 'icon-tongxunlu1' | 'icon-plus' | 'icon-meiyoushuju' | 'icon-no-msg2' | 'icon-login' | 'icon-arrow_right' | 'icon-setting' | 'icon-saoma' | 'icon-seekicon' | 'icon-arrow_left' | 'icon-kongbaiye2' | 'icon-bill' | 'icon-kongbai' | 'icon-kongbai1' | 'icon-kong' | 'icon-kong1' | 'icon-kong3' | 'icon-kong5' | 'icon-guanzhu' | 'icon-order' | 'icon-order_o' | 'icon-zan' | 'icon-jifen-o' | 'icon-shoucang' | 'icon-jifen' | 'icon-diamond' | 'icon-zan-o' | 'icon-guanzhu-o' | 'icon-shoucang-o' | 'icon-huiyuan' | 'icon-order1' | 'icon-chaxun' | 'icon-renqiniuren' | 'icon-message' | 'icon-message-o' | 'icon-hot' | 'icon-niuren' | 'icon-niuren-o' | 'icon-niurenbang' | 'icon-discover' | 'icon-home-o' | 'icon-user-o' | 'icon-user' | 'icon-discovery_o' | 'icon-product-o' | 'icon-account' | 'icon-home' | 'icon-product';
+export type IconNames = 'icon-tongzhi' | 'icon-tongzhi1' | 'icon-tongzhi2' | 'icon-laba_y' | 'icon-tongzhi_y' | 'icon-xiaoxi_y' | 'icon-laba' | 'icon-voice4-01' | 'icon-notice' | 'icon-notice_o' | 'icon-close' | 'icon-close_bold' | 'icon-add_bold' | 'icon-add_square' | 'icon-ellipsis' | 'icon-account-outline' | 'icon-peoples' | 'icon-peoples-o' | 'icon-zhibo' | 'icon-zhibo-o' | 'icon-add' | 'icon-tongxunlu' | 'icon-tongxunlu1' | 'icon-plus' | 'icon-meiyoushuju' | 'icon-no-msg2' | 'icon-login' | 'icon-arrow_right' | 'icon-setting' | 'icon-saoma' | 'icon-seekicon' | 'icon-arrow_left' | 'icon-kongbaiye2' | 'icon-bill' | 'icon-kongbai' | 'icon-kongbai1' | 'icon-kong' | 'icon-kong1' | 'icon-kong3' | 'icon-kong5' | 'icon-guanzhu' | 'icon-order' | 'icon-order_o' | 'icon-zan' | 'icon-jifen-o' | 'icon-shoucang' | 'icon-jifen' | 'icon-diamond' | 'icon-zan-o' | 'icon-guanzhu-o' | 'icon-shoucang-o' | 'icon-huiyuan' | 'icon-order1' | 'icon-chaxun' | 'icon-renqiniuren' | 'icon-message' | 'icon-message-o' | 'icon-hot' | 'icon-niuren' | 'icon-niuren-o' | 'icon-niurenbang' | 'icon-discover' | 'icon-home-o' | 'icon-user-o' | 'icon-user' | 'icon-discovery_o' | 'icon-product-o' | 'icon-account' | 'icon-home' | 'icon-product';
 
 interface Props extends GProps, ViewProps {
   name: IconNames;
@@ -139,130 +155,146 @@ interface Props extends GProps, ViewProps {
 
 let IconFont: FunctionComponent<Props> = ({ name, ...rest }) => {
   switch (name) {
+    case 'icon-tongzhi':
+      return <IconTongzhi key="1" {...rest} />;
+    case 'icon-tongzhi1':
+      return <IconTongzhi1 key="2" {...rest} />;
+    case 'icon-tongzhi2':
+      return <IconTongzhi2 key="3" {...rest} />;
+    case 'icon-laba_y':
+      return <IconLabaY key="4" {...rest} />;
+    case 'icon-tongzhi_y':
+      return <IconTongzhiY key="5" {...rest} />;
+    case 'icon-xiaoxi_y':
+      return <IconXiaoxiY key="6" {...rest} />;
+    case 'icon-laba':
+      return <IconLaba key="7" {...rest} />;
+    case 'icon-voice4-01':
+      return <IconVoice401 key="8" {...rest} />;
     case 'icon-notice':
-      return <IconNotice key="1" {...rest} />;
+      return <IconNotice key="9" {...rest} />;
     case 'icon-notice_o':
-      return <IconNoticeO key="2" {...rest} />;
+      return <IconNoticeO key="10" {...rest} />;
     case 'icon-close':
-      return <IconClose key="3" {...rest} />;
+      return <IconClose key="11" {...rest} />;
     case 'icon-close_bold':
-      return <IconCloseBold key="4" {...rest} />;
+      return <IconCloseBold key="12" {...rest} />;
     case 'icon-add_bold':
-      return <IconAddBold key="5" {...rest} />;
+      return <IconAddBold key="13" {...rest} />;
     case 'icon-add_square':
-      return <IconAddSquare key="6" {...rest} />;
+      return <IconAddSquare key="14" {...rest} />;
     case 'icon-ellipsis':
-      return <IconEllipsis key="7" {...rest} />;
+      return <IconEllipsis key="15" {...rest} />;
     case 'icon-account-outline':
-      return <IconAccountOutline key="8" {...rest} />;
+      return <IconAccountOutline key="16" {...rest} />;
     case 'icon-peoples':
-      return <IconPeoples key="9" {...rest} />;
+      return <IconPeoples key="17" {...rest} />;
     case 'icon-peoples-o':
-      return <IconPeoplesO key="10" {...rest} />;
+      return <IconPeoplesO key="18" {...rest} />;
     case 'icon-zhibo':
-      return <IconZhibo key="11" {...rest} />;
+      return <IconZhibo key="19" {...rest} />;
     case 'icon-zhibo-o':
-      return <IconZhiboO key="12" {...rest} />;
+      return <IconZhiboO key="20" {...rest} />;
     case 'icon-add':
-      return <IconAdd key="13" {...rest} />;
+      return <IconAdd key="21" {...rest} />;
     case 'icon-tongxunlu':
-      return <IconTongxunlu key="14" {...rest} />;
+      return <IconTongxunlu key="22" {...rest} />;
     case 'icon-tongxunlu1':
-      return <IconTongxunlu1 key="15" {...rest} />;
+      return <IconTongxunlu1 key="23" {...rest} />;
     case 'icon-plus':
-      return <IconPlus key="16" {...rest} />;
+      return <IconPlus key="24" {...rest} />;
     case 'icon-meiyoushuju':
-      return <IconMeiyoushuju key="17" {...rest} />;
+      return <IconMeiyoushuju key="25" {...rest} />;
     case 'icon-no-msg2':
-      return <IconNoMsg2 key="18" {...rest} />;
+      return <IconNoMsg2 key="26" {...rest} />;
     case 'icon-login':
-      return <IconLogin key="19" {...rest} />;
+      return <IconLogin key="27" {...rest} />;
     case 'icon-arrow_right':
-      return <IconArrowRight key="20" {...rest} />;
+      return <IconArrowRight key="28" {...rest} />;
     case 'icon-setting':
-      return <IconSetting key="21" {...rest} />;
+      return <IconSetting key="29" {...rest} />;
     case 'icon-saoma':
-      return <IconSaoma key="22" {...rest} />;
+      return <IconSaoma key="30" {...rest} />;
     case 'icon-seekicon':
-      return <IconSeekicon key="23" {...rest} />;
+      return <IconSeekicon key="31" {...rest} />;
     case 'icon-arrow_left':
-      return <IconArrowLeft key="24" {...rest} />;
+      return <IconArrowLeft key="32" {...rest} />;
     case 'icon-kongbaiye2':
-      return <IconKongbaiye2 key="25" {...rest} />;
+      return <IconKongbaiye2 key="33" {...rest} />;
     case 'icon-bill':
-      return <IconBill key="26" {...rest} />;
+      return <IconBill key="34" {...rest} />;
     case 'icon-kongbai':
-      return <IconKongbai key="27" {...rest} />;
+      return <IconKongbai key="35" {...rest} />;
     case 'icon-kongbai1':
-      return <IconKongbai1 key="28" {...rest} />;
+      return <IconKongbai1 key="36" {...rest} />;
     case 'icon-kong':
-      return <IconKong key="29" {...rest} />;
+      return <IconKong key="37" {...rest} />;
     case 'icon-kong1':
-      return <IconKong1 key="30" {...rest} />;
+      return <IconKong1 key="38" {...rest} />;
     case 'icon-kong3':
-      return <IconKong3 key="31" {...rest} />;
+      return <IconKong3 key="39" {...rest} />;
     case 'icon-kong5':
-      return <IconKong5 key="32" {...rest} />;
+      return <IconKong5 key="40" {...rest} />;
     case 'icon-guanzhu':
-      return <IconGuanzhu key="33" {...rest} />;
+      return <IconGuanzhu key="41" {...rest} />;
     case 'icon-order':
-      return <IconOrder key="34" {...rest} />;
+      return <IconOrder key="42" {...rest} />;
     case 'icon-order_o':
-      return <IconOrderO key="35" {...rest} />;
+      return <IconOrderO key="43" {...rest} />;
     case 'icon-zan':
-      return <IconZan key="36" {...rest} />;
+      return <IconZan key="44" {...rest} />;
     case 'icon-jifen-o':
-      return <IconJifenO key="37" {...rest} />;
+      return <IconJifenO key="45" {...rest} />;
     case 'icon-shoucang':
-      return <IconShoucang key="38" {...rest} />;
+      return <IconShoucang key="46" {...rest} />;
     case 'icon-jifen':
-      return <IconJifen key="39" {...rest} />;
+      return <IconJifen key="47" {...rest} />;
     case 'icon-diamond':
-      return <IconDiamond key="40" {...rest} />;
+      return <IconDiamond key="48" {...rest} />;
     case 'icon-zan-o':
-      return <IconZanO key="41" {...rest} />;
+      return <IconZanO key="49" {...rest} />;
     case 'icon-guanzhu-o':
-      return <IconGuanzhuO key="42" {...rest} />;
+      return <IconGuanzhuO key="50" {...rest} />;
     case 'icon-shoucang-o':
-      return <IconShoucangO key="43" {...rest} />;
+      return <IconShoucangO key="51" {...rest} />;
     case 'icon-huiyuan':
-      return <IconHuiyuan key="44" {...rest} />;
+      return <IconHuiyuan key="52" {...rest} />;
     case 'icon-order1':
-      return <IconOrder1 key="45" {...rest} />;
+      return <IconOrder1 key="53" {...rest} />;
     case 'icon-chaxun':
-      return <IconChaxun key="46" {...rest} />;
+      return <IconChaxun key="54" {...rest} />;
     case 'icon-renqiniuren':
-      return <IconRenqiniuren key="47" {...rest} />;
+      return <IconRenqiniuren key="55" {...rest} />;
     case 'icon-message':
-      return <IconMessage key="48" {...rest} />;
+      return <IconMessage key="56" {...rest} />;
     case 'icon-message-o':
-      return <IconMessageO key="49" {...rest} />;
+      return <IconMessageO key="57" {...rest} />;
     case 'icon-hot':
-      return <IconHot key="50" {...rest} />;
+      return <IconHot key="58" {...rest} />;
     case 'icon-niuren':
-      return <IconNiuren key="51" {...rest} />;
+      return <IconNiuren key="59" {...rest} />;
     case 'icon-niuren-o':
-      return <IconNiurenO key="52" {...rest} />;
+      return <IconNiurenO key="60" {...rest} />;
     case 'icon-niurenbang':
-      return <IconNiurenbang key="53" {...rest} />;
+      return <IconNiurenbang key="61" {...rest} />;
     case 'icon-discover':
-      return <IconDiscover key="54" {...rest} />;
+      return <IconDiscover key="62" {...rest} />;
     case 'icon-home-o':
-      return <IconHomeO key="55" {...rest} />;
+      return <IconHomeO key="63" {...rest} />;
     case 'icon-user-o':
-      return <IconUserO key="56" {...rest} />;
+      return <IconUserO key="64" {...rest} />;
     case 'icon-user':
-      return <IconUser key="57" {...rest} />;
+      return <IconUser key="65" {...rest} />;
     case 'icon-discovery_o':
-      return <IconDiscoveryO key="58" {...rest} />;
+      return <IconDiscoveryO key="66" {...rest} />;
     case 'icon-product-o':
-      return <IconProductO key="59" {...rest} />;
+      return <IconProductO key="67" {...rest} />;
     case 'icon-account':
-      return <IconAccount key="60" {...rest} />;
+      return <IconAccount key="68" {...rest} />;
     case 'icon-home':
-      return <IconHome key="61" {...rest} />;
+      return <IconHome key="69" {...rest} />;
     case 'icon-product':
-      return <IconProduct key="62" {...rest} />;
+      return <IconProduct key="70" {...rest} />;
   }
 
   return null;
