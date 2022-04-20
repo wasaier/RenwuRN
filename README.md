@@ -1,5 +1,5 @@
 ## RenwuRN
-React Native 快速开发模版
+语契移动端
 
 ### 1. 本地开发
 
