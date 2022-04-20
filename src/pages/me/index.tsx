@@ -54,6 +54,7 @@ const HomeScreen: React.FC<IMeScreenProps> = ({navigation, route}) => {
         },
         containerStyle: {
           position: 'absolute',
+          backgroundColor: 'transparent',
           top: 0,
           left: 0,
           right: 0,
@@ -65,8 +66,8 @@ const HomeScreen: React.FC<IMeScreenProps> = ({navigation, route}) => {
         start={{x: 0, y: 0}}
         end={{x: 0, y: 1}}
         // colors={['#fbffff', '#fff']}
-        // colors={['#e9f7ea', '#f4e8f7']}
         colors={['#f0f8fb', '#fff']}
+        // colors={['#f0f8fb', '#fff']}
         // colors={['#f4e8f7', '#fff']}
         style={{flex: 1}}>
         <ScrollView style={{backgroundColor: 'transparent'}}>

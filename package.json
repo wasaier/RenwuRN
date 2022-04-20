@@ -1,6 +1,6 @@
 {
   "name": "renwurnts",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -36,6 +36,7 @@
     "react": "17.0.2",
     "react-native": "0.67.4",
     "react-native-camera": "^4.2.1",
+    "react-native-code-push": "^7.0.4",
     "react-native-config": "^1.4.5",
     "react-native-elements": "^3.4.2",
     "react-native-gesture-handler": "^2.3.2",

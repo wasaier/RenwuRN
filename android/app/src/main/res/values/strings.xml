@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RenwuRNTS</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">4hO2DvQZXpNMIkoIZYHzvaE2t0pzBia4eW-62</string>
 </resources>

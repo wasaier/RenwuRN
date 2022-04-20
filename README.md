@@ -61,3 +61,13 @@ cd android && ./gradlew assembleRelease
 <img width=300 src="./screenshots/06-me.png">
 <img width=300 src="./screenshots/07-login.png">
 <img width=300 src="./screenshots/08-setting.png">
+
+### 4、code push
+```bash
+# push
+code-push release-react RenwuAndroid android
+code-push release-react RenwuAndroid android -d Production
+
+# 查看部署的版本
+code-push deployment ls RenwuAndroid
+```

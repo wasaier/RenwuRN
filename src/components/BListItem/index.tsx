@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacityProps, View} from 'react-native';
 import {IconArrowRight} from '../../assets/iconfont';
+import BHStack from '../BHStack';
 import MTouchableOpacity from '../MTouchableOpacity';
 
 interface IProps {
@@ -9,15 +10,19 @@ interface IProps {
   link?: boolean;
   border?: boolean;
   onPress?: TouchableOpacityProps['onPress'];
+  value?: React.ReactNode;
 }
 
-const BListItem: React.FC<IProps> = ({title, icon, link = true, border = true, ...rest}) => {
+const BListItem: React.FC<IProps> = ({title, icon, link = true, border = true, value, ...rest}) => {
   return (
     <MTouchableOpacity {...rest}>
       <View style={styles.item}>
         <View style={styles.inner}>
           <Text style={styles.title}>{title}</Text>
-          {link && <IconArrowRight color={'#ddd'} /> }
+          <BHStack>
+            {value ? value : null}
+            {link && <IconArrowRight color={'#ddd'} /> }
+          </BHStack>
         </View>
         {border && <View style={styles.line}></View>}
       </View>

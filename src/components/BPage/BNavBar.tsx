@@ -115,7 +115,8 @@ const BNavBar: React.FC<IBNavBar> = ({
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: 'transparent',
+    // backgroundColor: 'transparent',
+    backgroundColor: '#fff'
   },
   topInsert: {
     height: Platform.OS === 'android' ? 24 : 42,
