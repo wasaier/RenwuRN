@@ -5,10 +5,10 @@ import {Theme} from '@/utils/theme';
 import React, {useEffect, useState} from 'react';
 import {ScrollView, StyleSheet, TextInput, View} from 'react-native';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
-import BPage from '../../components/BPage';
-import BText from '../../components/BText';
-import {RootStackNavigation} from '../../navigator';
-import ProjectAPI from '../../services/project';
+import BPage from '@/components/BPage';
+import BText from '@/components/BText';
+import {RootStackNavigation} from '@/navigator';
+import ProjectAPI from '@/services/project';
 import SearchHistory from './widgets/History';
 import PopularSearch from './widgets/Popular';
 

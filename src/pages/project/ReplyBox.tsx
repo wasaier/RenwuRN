@@ -1,7 +1,7 @@
 import {observer} from 'mobx-react';
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, TextInput} from 'react-native';
-import {useStore} from '../../model';
+import {useStore} from '@/model';
 
 interface IProps {
   onBlur: () => void;

@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
-import type {IProject} from '../../types/Project';
+import type {IProject} from '@/types/Project';
 
-import BText from '../../components/BText';
-import BRow from '../../components/BRow';
-import { formatDate } from '../../utils/formatDate';
+import BText from '@/components/BText';
+import BRow from '@/components/BRow';
+import { formatDate } from '@/utils/formatDate';
 
 const BaseInfo: React.FC<{detail: IProject}> = ({detail}) => {
   return (

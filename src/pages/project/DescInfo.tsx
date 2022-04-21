@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import type {IProject} from '../../types/Project';
+import type {IProject} from '@/types/Project';
 
-import BText from '../../components/BText';
-import BLine from '../../components/BLine';
+import BText from '@/components/BText';
+import BLine from '@/components/BLine';
 
 const DescInfo: React.FC<{detail: IProject}> = ({detail}) => {
   return (

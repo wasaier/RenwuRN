@@ -10,13 +10,13 @@ import {
   IconShoucangO,
   IconZan,
   IconZanO,
-} from '../../assets/iconfont';
-import BText from '../../components/BText';
-import {useStore} from '../../model';
-import CollectAPI, {ObjectTypes} from '../../services/collect';
-import {CollectTypes} from '../../services/project';
-import { isIphoneX } from '../../utils/screen';
-import {Theme} from '../../utils/theme';
+} from '@/assets/iconfont';
+import BText from '@/components/BText';
+import {useStore} from '@/model';
+import CollectAPI, {ObjectTypes} from '@/services/collect';
+import {CollectTypes} from '@/services/project';
+import { isIphoneX } from '@/utils/screen';
+import {Theme} from '@/utils/theme';
 
 interface IProps {
   itemId: number;

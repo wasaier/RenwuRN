@@ -1,10 +1,10 @@
 import {observer} from 'mobx-react';
 import React, { useEffect } from 'react';
 import {Image, StyleSheet, View} from 'react-native';
-import MTouchableOpacity from '../../components/MTouchableOpacity';
-import {useStore} from '../../model';
-import {RootStackNavigation} from '../../navigator';
-import {screen_height, screen_width} from '../../utils/screen';
+import MTouchableOpacity from '@/components/MTouchableOpacity';
+import {useStore} from '@/model';
+import {RootStackNavigation} from '@/navigator';
+import {screen_height, screen_width} from '@/utils/screen';
 
 type IProps = {};
 

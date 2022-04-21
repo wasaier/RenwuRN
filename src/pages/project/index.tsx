@@ -6,19 +6,19 @@ import {
 } from 'react-native-gesture-handler';
 
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
-import type {RootStackParamList} from '../../navigator';
+import type {RootStackParamList} from '@/navigator';
 
-import BPage from '../../components/BPage';
+import BPage from '@/components/BPage';
 import BaseInfo from './BaseInfo';
 import DescInfo from './DescInfo';
 import EnrollInfo from './EnrollInfo';
 import CommentInfo from './CommentInfo';
 import {observer} from 'mobx-react';
-import {useStore} from '../../model';
+import {useStore} from '@/model';
 import ReplyBox from './ReplyBox';
 import ProjectFooter from './Footer';
-import {IconEllipsis} from '../../assets/iconfont';
-import Loading from '../../components/Loading';
+import {IconEllipsis} from '@/assets/iconfont';
+import Loading from '@/components/Loading';
 import {Popover} from '@ant-design/react-native';
 import {Text} from 'react-native';
 

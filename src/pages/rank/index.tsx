@@ -8,12 +8,12 @@ import {
   StyleSheet,
 } from 'react-native';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
-import BPage from '../../components/BPage';
-import BText from '../../components/BText';
-import Loading from '../../components/Loading';
-import {RootStackNavigation} from '../../navigator';
-import RankAPI from '../../services/rank';
-import {IUser} from '../../types/User';
+import BPage from '@/components/BPage';
+import BText from '@/components/BText';
+import Loading from '@/components/Loading';
+import {RootStackNavigation} from '@/navigator';
+import RankAPI from '@/services/rank';
+import {IUser} from '@/types/User';
 
 type IProps = {
   navigation: RootStackNavigation;

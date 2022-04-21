@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
-import {IComment} from '../../types/Comment';
-import {IUser} from '../../types/User';
-import { formatDate } from '../../utils/formatDate';
+import {IComment} from '@/types/Comment';
+import {IUser} from '@/types/User';
+import { formatDate } from '@/utils/formatDate';
 
 const gray_color = '#222';
 const active_color = '#03a9f4';

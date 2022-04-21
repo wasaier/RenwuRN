@@ -1,14 +1,14 @@
 import React from 'react';
 import {View, Image, StyleSheet, Text, Alert} from 'react-native';
-import type {IProject} from '../../types/Project';
+import type {IProject} from '@/types/Project';
 
-import BText from '../../components/BText';
-import BLine from '../../components/BLine';
-import {IComment} from '../../types/Comment';
+import BText from '@/components/BText';
+import BLine from '@/components/BLine';
+import {IComment} from '@/types/Comment';
 import CommentItem from './CommentItem';
 import { observer } from 'mobx-react';
-import { useStore } from '../../model';
-import BEmpty from '../../components/BEmpty';
+import { useStore } from '@/model';
+import BEmpty from '@/components/BEmpty';
 
 interface IProps {
   detail: IProject;

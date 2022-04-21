@@ -9,10 +9,7 @@ import {
   View,
 } from 'react-native';
 import {RNCamera} from 'react-native-camera';
-import BPage from '../../components/BPage';
-// import SafeAreaViewPlus from '../common/SafeAreaViewPlus';
-// import NavigationBar from '../common/NavigationBar';
-// import ViewUtil from '../util/ViewUtil';
+import BPage from '@/components/BPage';
 
 export default class ScanScreen extends Component<any, any> {
   constructor(props: any) {

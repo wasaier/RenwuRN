@@ -1,11 +1,11 @@
 import React from 'react';
 import {View, Image, StyleSheet} from 'react-native';
-import type {IProject} from '../../types/Project';
+import type {IProject} from '@/types/Project';
 
-import BText from '../../components/BText';
-import BLine from '../../components/BLine';
-import {IEnroll} from '../../types/Enroll';
-import BEmpty from '../../components/BEmpty';
+import BText from '@/components/BText';
+import BLine from '@/components/BLine';
+import {IEnroll} from '@/types/Enroll';
+import BEmpty from '@/components/BEmpty';
 
 interface IProps {
   detail: IProject;
