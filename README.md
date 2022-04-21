@@ -54,14 +54,14 @@ cd android && ./gradlew assembleRelease
 
 ### 4. 应用截屏
 <div style="width: 2400px">
-    <img width=300 src="./screenshots/01-welcome.png">
-    <img width=300 src="./screenshots/02-index.png">
-    <img width=300 src="./screenshots/03-rank.png">
-    <img width=300 src="./screenshots/04-find.png">
-    <img width=300 src="./screenshots/05-FindDetail.png">
-    <img width=300 src="./screenshots/06-me.png">
-    <img width=300 src="./screenshots/07-login.png">
-    <img width=300 src="./screenshots/08-setting.png">
+  <img width=300 src="./screenshots/01-welcome.png">
+  <img width=300 src="./screenshots/02-index.png">
+  <img width=300 src="./screenshots/03-rank.png">
+  <img width=300 src="./screenshots/04-find.png">
+  <img width=300 src="./screenshots/05-FindDetail.png">
+  <img width=300 src="./screenshots/06-me.png">
+  <img width=300 src="./screenshots/07-login.png">
+  <img width=300 src="./screenshots/08-setting.png">
 </div>
 
 ### 4、code push

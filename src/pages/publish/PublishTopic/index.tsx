@@ -1,55 +1,72 @@
-import React, {useRef, useState} from 'react';
+import React, {
+  forwardRef,
+  ForwardRefRenderFunction,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 import {
   View,
   NativeSyntheticEvent,
   TextInputChangeEventData,
+  Alert
 } from 'react-native';
 import FeedAPI from '@/services/feed';
 import BInput from '@/components/BInput';
 import BImagePicker, {IBImagePickerRef} from '@/components/BImagePicker';
 import BTextArea from '@/components/BTextArea';
-import {Button} from 'native-base';
 import Theme from '@/utils/theme';
+import {PublishContext} from '../context';
 
-const PublishTopic = () => {
+export interface IPublishTopicRef {
+  submit: () => void;
+}
+
+const PublishTopic: ForwardRefRenderFunction<IPublishTopicRef> = (_, ref) => {
   const imagePickerRef = useRef<IBImagePickerRef>(null);
   const [loading, setLoading] = useState(false);
-  const [state, setState] = useState({
-    title: '',
-    content: '',
-  });
+  const context = React.useContext(PublishContext);
 
   const clearForm = () => {
-    setState({
+    context?.setDemand({
       title: '',
       content: '',
+      pics: [],
     });
     imagePickerRef.current?.setPics([]);
   };
 
   const submit = async () => {
-    setLoading(true);
-    try {
-      const pics = (await imagePickerRef.current?.getPics()) || [];
-      const r = await FeedAPI.addFeed({
-        ...state,
-        pics: pics.map(it => it).join(','),
-      });
-      clearForm();
-    } catch (e) {
-      console.log(`submit_topic`, e);
-    }
-    setLoading(false);
+    Alert.alert(JSON.stringify(context?.demand))
+    // setLoading(true);
+    // try {
+    //   const pics = (await imagePickerRef.current?.getPics()) || [];
+    //   const r = await FeedAPI.addFeed({
+    //     ...context?.demand,
+    //     pics: pics.map(it => it).join(','),
+    //   });
+    //   clearForm();
+    // } catch (e) {
+    //   console.log(`submit_topic`, e);
+    // }
+    // setLoading(false);
   };
+
+  useImperativeHandle(ref, () => {
+    return {
+      submit,
+    };
+  });
 
   const setFiledValue = (filedName: string) => {
     return function (e: NativeSyntheticEvent<TextInputChangeEventData>) {
       const text = e.nativeEvent.text;
-      setState(prev => ({...prev, [filedName]: text}));
+      context?.setDemand({
+        ...context.demand,
+        [filedName]: text,
+      });
     };
   };
-
-  const isDisabled = loading || !state.title.length || !state.content.length;
 
   return (
     <View
@@ -60,36 +77,27 @@ const PublishTopic = () => {
       }}>
       <View style={{marginTop: 10}}>
         <BInput
-          onClear={() => setState(prev => ({...prev, title: ''}))}
+          onClear={() =>
+            context?.setDemand({
+              ...context.demand,
+              title: '',
+            })
+          }
           placeholder="标题"
-          value={state.title}
+          value={context?.demand.title}
           onChange={setFiledValue('title')}
         />
         <BTextArea
           placeholder="描述"
-          value={state.content}
+          value={context?.demand.content}
           onChange={setFiledValue('content')}
         />
         <View style={{backgroundColor: Theme.white, marginTop: 10}}>
           <BImagePicker ref={imagePickerRef} />
-          <Button
-            isLoading={loading}
-            isDisabled={isDisabled}
-            onPress={submit}
-            size="lg"
-            colorScheme={'green'}
-            style={{
-              marginHorizontal: 16,
-              height: 44,
-              borderRadius: 2,
-              marginVertical: 20,
-            }}>
-            提 交
-          </Button>
         </View>
       </View>
     </View>
   );
 };
 
-export default PublishTopic;
+export default forwardRef(PublishTopic);
