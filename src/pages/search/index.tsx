@@ -55,7 +55,9 @@ const SearchScreen: React.FC<IProps> = ({ navigation }) => {
   return (
     <BPage title="搜索" showNavBar={false}>
       <View>{renderSForm()}</View>
-      <ScrollView></ScrollView>
+      <ScrollView>
+        
+      </ScrollView>
     </BPage>
   );
 };
