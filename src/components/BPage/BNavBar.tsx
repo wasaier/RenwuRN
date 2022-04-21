@@ -11,6 +11,7 @@ import {useNavigation, useRoute} from '@react-navigation/native';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import IconBack from '../../assets/iconfont/IconArrowLeft';
 import BText from '../BText';
+import { IconIosArrowRoundBack } from '@/assets/iconfont';
 
 export const TOP_INSERT_HEIGHT = Platform.OS === 'android' ? 24 : 42;
 
@@ -57,7 +58,7 @@ const BNavBar: React.FC<IBNavBar> = ({
       if (showBack) {
         return (
           <TouchableWithoutFeedback onPress={back}>
-            <IconBack size={24} color="#333" {...backIconStyle} />
+            <IconIosArrowRoundBack size={30} color="#333" {...backIconStyle} />
           </TouchableWithoutFeedback>
         );
       }

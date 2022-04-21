@@ -78,7 +78,7 @@ export function MyTabBar({state, descriptors, navigation}: BottomTabBarProps) {
       // publishStore.setModal(true);
       navigation.navigate('PublishModal')
     }}>
-      <IconAddSquare size={40} color={Theme.brandColor} />
+      <IconAddSquare size={40} color={'#333'} />
     </TouchableOpacity>,
   );
 

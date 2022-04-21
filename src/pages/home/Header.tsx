@@ -6,8 +6,7 @@ import {
   TouchableWithoutFeedback,
   Platform,
 } from 'react-native';
-import { IconNiuren, IconNiurenbang, IconSaoma, IconSeekicon } from '@/assets/iconfont';
-import BText from '@/components/BText';
+import { IconIconSaoma, IconNiuren, IconNiurenbang, IconSaoma, IconSeekicon, IconZhuanyepaiming } from '@/assets/iconfont';
 import MTouchableOpacity from '@/components/MTouchableOpacity';
 
 interface IProps {
@@ -20,15 +19,16 @@ const HomeMenu: React.FC<IProps> = (props) => {
   return (
     <View style={style.wrapper}>
       <MTouchableOpacity style={{ marginRight: 10 }} onPress={props.onScan}>
-        <IconSaoma color='#000' />
+        {/* <IconSaoma color='#000' /> */}
+        <IconIconSaoma size={22}/>
       </MTouchableOpacity>
       <MTouchableOpacity style={style.input} onPress={props.goSearch}>
         <IconSeekicon color={'#888'} size={16} />
         <Text style={style.inputText}>搜索关键字</Text>
       </MTouchableOpacity>
       <MTouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }} onPress={props.goRank}>
-        <IconNiuren size={18} color="#000" style={{ marginRight: 4}}/>
-        {/* <BText type='main' style={{ fontSize: 12 }}>牛人</BText> */}
+        <IconNiuren size={18} color="#000" style={{ marginRight: 4 }}/>
+        {/* <IconZhuanyepaiming size={30} /> */}
       </MTouchableOpacity>
     </View>
   );

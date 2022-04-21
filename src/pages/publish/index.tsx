@@ -1,11 +1,11 @@
 import {observer} from 'mobx-react';
 import React, {useState} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
-import IconClose from '../../assets/iconfont/IconClose';
-import BPage from '../../components/BPage';
-import MSegment from '../../components/BSegment';
-import MSegmentedItem from '../../components/BSegment/Item';
-import {RootStackNavigation} from '../../navigator';
+import IconClose from '@/assets/iconfont/IconClose';
+import BPage from '@/components/BPage';
+import MSegment from '@/components/BSegment';
+import MSegmentedItem from '@/components/BSegment/Item';
+import {RootStackNavigation} from '@/navigator';
 import PublishTopic from './PublishTopic';
 
 type IProps = {

@@ -4,11 +4,12 @@ import {
   NativeSyntheticEvent,
   TextInputChangeEventData,
 } from 'react-native';
-import FeedAPI from '../../../services/feed';
-import BInput from '../../../components/BInput';
-import BImagePicker, {IBImagePickerRef} from '../../../components/BImagePicker';
-import BTextArea from '../../../components/BTextArea';
+import FeedAPI from '@/services/feed';
+import BInput from '@/components/BInput';
+import BImagePicker, {IBImagePickerRef} from '@/components/BImagePicker';
+import BTextArea from '@/components/BTextArea';
 import {Button} from 'native-base';
+import Theme from '@/utils/theme';
 
 const PublishTopic = () => {
   const imagePickerRef = useRef<IBImagePickerRef>(null);
@@ -48,14 +49,15 @@ const PublishTopic = () => {
     };
   };
 
-  const isDisabled = loading || (
-    !state.title.length
-  ) || (
-    !state.content.length
-  );
+  const isDisabled = loading || !state.title.length || !state.content.length;
 
   return (
-    <View style={{paddingHorizontal: 10, flex: 1, backgroundColor: '#f5f5f5'}}>
+    <View
+      style={{
+        paddingHorizontal: 10,
+        flex: 1,
+        backgroundColor: Theme.borderColor,
+      }}>
       <View style={{marginTop: 10}}>
         <BInput
           onClear={() => setState(prev => ({...prev, title: ''}))}
@@ -68,7 +70,7 @@ const PublishTopic = () => {
           value={state.content}
           onChange={setFiledValue('content')}
         />
-        <View style={{backgroundColor: '#fff', marginTop: 10}}>
+        <View style={{backgroundColor: Theme.white, marginTop: 10}}>
           <BImagePicker ref={imagePickerRef} />
           <Button
             isLoading={loading}
@@ -76,7 +78,12 @@ const PublishTopic = () => {
             onPress={submit}
             size="lg"
             colorScheme={'green'}
-            style={{marginHorizontal: 16, height: 44, borderRadius: 2, marginVertical: 20}}>
+            style={{
+              marginHorizontal: 16,
+              height: 44,
+              borderRadius: 2,
+              marginVertical: 20,
+            }}>
             提 交
           </Button>
         </View>

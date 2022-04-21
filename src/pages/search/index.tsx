@@ -1,30 +1,38 @@
-import React, {useState} from 'react';
+import { IconArrowLeft, IconIosArrowDropleftCircle, IconIosArrowRoundBack } from '@/assets/iconfont';
+import MTouchableOpacity from '@/components/MTouchableOpacity';
+import {IProject} from '@/types/Project';
+import {Theme} from '@/utils/theme';
+import React, {useEffect, useState} from 'react';
 import {ScrollView, StyleSheet, TextInput, View} from 'react-native';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import BPage from '../../components/BPage';
 import BText from '../../components/BText';
-import { RootStackNavigation } from '../../navigator';
+import {RootStackNavigation} from '../../navigator';
 import ProjectAPI from '../../services/project';
+import SearchHistory from './widgets/History';
+import PopularSearch from './widgets/Popular';
 
 type IProps = {
-  navigation: RootStackNavigation
-}
+  navigation: RootStackNavigation;
+};
 
-const SearchScreen: React.FC<IProps> = ({ navigation }) => {
+const SearchScreen: React.FC<IProps> = ({navigation}) => {
   const [state, setState] = useState({
     hotList: ['二手笔记本'],
     history: [],
-    search: '',
-    searchList: [],
+    searchList: [] as IProject[],
     pageSize: 10,
     pageIndex: 1,
   });
+  const [formData, setFormData] = useState({
+    search: '',
+  });
 
-  const getProjectList = () => {
+  const getProjectList = (keyword: string) => {
     ProjectAPI.getProjectList({
       pageSize: state.pageSize,
       pageIndex: state.pageIndex,
-      keyword: state.search,
+      keyword,
     }).then((res: any) => {
       setState(prev => ({
         ...prev,
@@ -33,31 +41,70 @@ const SearchScreen: React.FC<IProps> = ({ navigation }) => {
     });
   };
 
-  const back = () => {
-    navigation.goBack()
-  }
+  useEffect(() => {
+    if (formData.search) {
+      getProjectList(formData.search);
+    }
+  }, [formData.search, getProjectList, state]);
 
-  const updateSearch = (search: string) => {};
+  const back = () => {
+    navigation.goBack();
+  };
 
   const renderSForm = () => {
     return (
       <View style={styles.formWrapper}>
         <View style={styles.formInner}>
-          <TextInput autoFocus style={styles.input} placeholder='搜索关键词' />
           <TouchableWithoutFeedback onPress={back}>
-            <BText type='info' style={styles.backBtn}>取消</BText>
+            <IconIosArrowRoundBack size={30} style={{ marginRight: 10 }} />
           </TouchableWithoutFeedback>
+          <TextInput
+            autoFocus
+            onChangeText={content => {
+              setFormData(() => ({search: content}));
+            }}
+            value={formData.search}
+            style={styles.input}
+            placeholder="搜索关键词"
+          />
         </View>
       </View>
     );
   };
 
+  const list = state.searchList.map(it => {
+    return (
+      <MTouchableOpacity onPress={() => {
+        navigation.navigate('Project', {
+          id: it.id
+        })
+      }}>
+        <View style={styles.item}>
+          <BText type="second" style={{lineHeight: 40, paddingHorizontal: 10}}>
+            {it.title}
+          </BText>
+        </View>
+      </MTouchableOpacity>
+    );
+  });
+
+  const renderBody = () => {
+    if (!formData.search) {
+      return (
+        <>
+          <SearchHistory />
+          <View style={{height: 10}}></View>
+          <PopularSearch />
+        </>
+      );
+    }
+    return list;
+  };
+
   return (
     <BPage title="搜索" showNavBar={false}>
       <View>{renderSForm()}</View>
-      <ScrollView>
-        
-      </ScrollView>
+      <ScrollView>{renderBody()}</ScrollView>
     </BPage>
   );
 };
@@ -69,8 +116,10 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: Theme.white,
     padding: 10,
+    borderBottomColor: Theme.grayBorderColor,
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
   input: {
     flex: 1,
@@ -78,8 +127,8 @@ const styles = StyleSheet.create({
     height: 32,
     fontSize: 12,
     paddingHorizontal: 10,
-    backgroundColor: '#f4f4f4',
-    borderRadius: 2
+    backgroundColor: Theme.borderColor,
+    borderRadius: 2,
   },
   formInner: {
     flex: 1,
@@ -87,6 +136,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   backBtn: {
-    marginLeft: 10
-  }
+    marginLeft: 10,
+  },
+  item: {
+    paddingVertical: 0,
+    backgroundColor: Theme.white,
+    borderBottomColor: Theme.borderColor,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
 });

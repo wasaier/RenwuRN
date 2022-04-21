@@ -4,6 +4,7 @@ import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import {
   IconDiamond,
   IconGuanzhu,
+  IconJifen,
   IconShoucang,
   IconZan,
 } from '@/assets/iconfont';
@@ -39,7 +40,7 @@ const UserAssets: React.FC<{accountInfo: IAccountInfo}> = ({accountInfo}) => {
     {
       label: '积分',
       value: accountInfo.pointNum,
-      icon: <IconDiamond size={22} color="#333"  />,
+      icon: <IconJifen size={22} color="#333"  />,
       onClick: () => {
         // router.goMyPoint({navigation});
       },
