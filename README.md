@@ -53,6 +53,11 @@ cd android && ./gradlew assembleRelease
 | react-native-video | 播放视频 |
 
 ### 4. 应用截屏
+
+欢迎页             |  首页
+:-------------------------:|:-------------------------:
+![](./screenshots/01-welcome.png)  |  ![](./screenshots/02-index.png)
+
 <div style="width: 2400px">
   <img width=300 src="./screenshots/01-welcome.png">
   <img width=300 src="./screenshots/02-index.png">
