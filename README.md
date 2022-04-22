@@ -54,9 +54,9 @@ cd android && ./gradlew assembleRelease
 
 ### 4. 应用截屏
 
-欢迎页             |  首页
-:-------------------------:|:-------------------------:
-![](./screenshots/01-welcome.png)  |  ![](./screenshots/02-index.png)
+欢迎页  |  首页 | 牛人
+:-----:|:-----:|:-----:
+![](./screenshots/01-welcome.png) | ![](./screenshots/02-index.png) | ![](./screenshots/03-rank.png)
 
 <div style="width: 2400px">
   <img width=300 src="./screenshots/01-welcome.png">
