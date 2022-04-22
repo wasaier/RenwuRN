@@ -11,7 +11,9 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		5B1F4AF2C3C64587A3C58446 /* antfill.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 344C96D63F6546B8AC24EEE3 /* antfill.ttf */; };
 		6172F2D35A4C3AA820D92908 /* libPods-RenwuRNTS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6423831EA8574132BED9D8CC /* libPods-RenwuRNTS.a */; };
+		756EC4E4ECB045C3AAB6839D /* antoutline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FA04A435DE642549A3D1F6E /* antoutline.ttf */; };
 		7EF68E3733C33B6898317E18 /* libPods-RenwuRNTS-RenwuRNTSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFE59519B596E51CEFDCCC0 /* libPods-RenwuRNTS-RenwuRNTSTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -37,9 +39,11 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = RenwuRNTS/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = RenwuRNTS/main.m; sourceTree = "<group>"; };
 		1D0AE47A65C8663E3B452821 /* Pods-RenwuRNTS-RenwuRNTSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenwuRNTS-RenwuRNTSTests.release.xcconfig"; path = "Target Support Files/Pods-RenwuRNTS-RenwuRNTSTests/Pods-RenwuRNTS-RenwuRNTSTests.release.xcconfig"; sourceTree = "<group>"; };
+		344C96D63F6546B8AC24EEE3 /* antfill.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = antfill.ttf; path = "../node_modules/@ant-design/icons-react-native/fonts/antfill.ttf"; sourceTree = "<group>"; };
 		6423831EA8574132BED9D8CC /* libPods-RenwuRNTS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RenwuRNTS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C97AB639B58BBB4B15BBE30 /* Pods-RenwuRNTS-RenwuRNTSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenwuRNTS-RenwuRNTSTests.debug.xcconfig"; path = "Target Support Files/Pods-RenwuRNTS-RenwuRNTSTests/Pods-RenwuRNTS-RenwuRNTSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = RenwuRNTS/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8FA04A435DE642549A3D1F6E /* antoutline.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = antoutline.ttf; path = "../node_modules/@ant-design/icons-react-native/fonts/antoutline.ttf"; sourceTree = "<group>"; };
 		ABFE59519B596E51CEFDCCC0 /* libPods-RenwuRNTS-RenwuRNTSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RenwuRNTS-RenwuRNTSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0A881CF5CF3F2B244570E2A /* Pods-RenwuRNTS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenwuRNTS.debug.xcconfig"; path = "Target Support Files/Pods-RenwuRNTS/Pods-RenwuRNTS.debug.xcconfig"; sourceTree = "<group>"; };
 		D00AAFFCFCFDA5787532823F /* Pods-RenwuRNTS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenwuRNTS.release.xcconfig"; path = "Target Support Files/Pods-RenwuRNTS/Pods-RenwuRNTS.release.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				E233CBF5F47BEE60B243DCF8 /* Pods */,
+				C6EA8103641E48B193051843 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -135,6 +140,16 @@
 				00E356EE1AD99517003FC87E /* RenwuRNTSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C6EA8103641E48B193051843 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				344C96D63F6546B8AC24EEE3 /* antfill.ttf */,
+				8FA04A435DE642549A3D1F6E /* antoutline.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		E233CBF5F47BEE60B243DCF8 /* Pods */ = {
@@ -245,6 +260,8 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				5B1F4AF2C3C64587A3C58446 /* antfill.ttf in Resources */,
+				756EC4E4ECB045C3AAB6839D /* antoutline.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import {RootStackNavigation} from '@/navigator';
-import PublishTopic, {IPublishTopicRef} from './PublishTopic';
 import BNPage from '@/components/BPage/BNPage';
 import BText from '@/components/BText';
 import {IconIosArrowRoundBack} from '@/assets/iconfont';
@@ -9,6 +8,9 @@ import BHStack from '@/components/BHStack';
 import MTouchableOpacity from '@/components/MTouchableOpacity';
 import {Button} from 'native-base';
 import {IDemandData, PublishContext} from './utils/context';
+import { Toast } from '@ant-design/react-native';
+import FeedAPI from '@/services/feed';
+import DemandForm, { IDemandFormRef } from './components/DemandForm';
 
 type IProps = {
   navigation: RootStackNavigation;
@@ -16,7 +18,7 @@ type IProps = {
 
 const PublishScreen: React.FC<IProps> = ({navigation}) => {
   const goBack = () => navigation.goBack();
-  const dRef = React.useRef<IPublishTopicRef>(null);
+  const dRef = React.useRef<IDemandFormRef>(null);
 
   const [state, setState] = useState({
     disabled1: true,
@@ -34,17 +36,73 @@ const PublishScreen: React.FC<IProps> = ({navigation}) => {
     pics: [],
   });
 
-  const sbmBtn = (
-    <Button
-      variant="ghost"
-      onPress={() => {
-        dRef.current?.submit();
-      }}>
-      <BText>发布</BText>
-    </Button>
-  );
+  const clearForm = () => {
+    setDemand({
+      title: '',
+      content: '',
+      pics: [],
+    });
+    dRef.current?.clearPics();
+  };
+
+  const submitDemand = async () => {
+    const s = Toast.loading({
+      content: '加载中',
+      duration: 0
+    });
+    try {
+      const params = await dRef.current?.getParams();
+      const r = await FeedAPI.addFeed({
+        ...params,
+        pics: params?.pics!.join(',')
+      });
+      if (r.errCode === '0') {
+        clearForm();
+        Toast.remove(s);
+        Toast.success({ content: '操作成功' })
+        goBack();
+      } else {
+        throw new Error(r.errMsg);
+      }
+    } catch (e) {
+      Toast.remove(s);
+      Toast.fail({ content: JSON.stringify(e) })
+    }
+  }
+
+  const renderSubmitBtn = () => {
+    if (state.tabIndex === 0) {
+      return (
+        <Button variant="ghost" disabled={!demand.title || !demand.content} onPress={submitDemand}>
+          <BText>发布</BText>
+        </Button>
+      )
+    }
+    return (
+      <Button variant="ghost" disabled={!demand.title || !demand.content} onPress={submitDemand}>
+        <BText>发布</BText>
+      </Button>
+    )
+  }
 
   const renderTitle = () => {
+    const menus = [
+      { name: '需求' },
+      { name: '帖子' }
+    ].map((it, index) => {
+      return (
+        <>
+          <MTouchableOpacity onPress={() => setIndex(index)}>
+            <BHStack style={styles.box}>
+              <BText>{it.name}</BText>
+              {state.tabIndex === index && <View style={styles.line}></View>}
+            </BHStack>
+          </MTouchableOpacity>
+          {index === 0 && <View style={{width: 30}}></View>}
+        </>
+      )
+    });
+
     return (
       <View style={styles.header}>
         <IconIosArrowRoundBack
@@ -53,30 +111,10 @@ const PublishScreen: React.FC<IProps> = ({navigation}) => {
           onPress={goBack}
           size={30}
         />
-        <View
-          style={{
-            flex: 1,
-            flexDirection: 'row',
-            height: '100%',
-            justifyContent: 'center',
-          }}>
-          <BHStack style={{height: '100%'}}>
-            <MTouchableOpacity onPress={() => setIndex(0)}>
-              <BHStack style={styles.box}>
-                <BText>需求</BText>
-                {state.tabIndex === 0 && <View style={styles.line}></View>}
-              </BHStack>
-            </MTouchableOpacity>
-            <View style={{width: 30}}></View>
-            <MTouchableOpacity onPress={() => setIndex(1)}>
-              <BHStack style={styles.box}>
-                <BText style={{textAlign: 'center'}}>帖子</BText>
-                {state.tabIndex === 1 && <View style={styles.line}></View>}
-              </BHStack>
-            </MTouchableOpacity>
-          </BHStack>
+        <View style={styles.headerCenter}>
+          <BHStack>{ menus }</BHStack>
         </View>
-        {sbmBtn}
+        {renderSubmitBtn()}
       </View>
     );
   };
@@ -95,7 +133,7 @@ const PublishScreen: React.FC<IProps> = ({navigation}) => {
         navBarOptions={{showNavBar: false, showBack: false}}
         style={styles.screen}>
         {renderTitle()}
-        <PublishTopic ref={dRef} />
+        <DemandForm ref={dRef} />
       </BNPage>
     </PublishContext.Provider>
   );
@@ -127,6 +165,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     paddingRight: 6,
+  },
+  headerCenter: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   box: {
     position: 'relative',

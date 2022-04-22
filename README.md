@@ -75,3 +75,7 @@ code-push release-react RenwuAndroid android -d Production
 # 查看部署的版本
 code-push deployment ls RenwuAndroid
 ```
+
+### 5、Issues
+
+- Unrecognized font family 'antoutline'

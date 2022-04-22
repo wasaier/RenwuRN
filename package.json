@@ -10,6 +10,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@ant-design/icons-react-native": "^2.3.2",
     "@ant-design/react-native": "^5.0.0",
     "@babel/plugin-proposal-decorators": "^7.17.8",
     "@react-native-community/async-storage": "^1.12.1",

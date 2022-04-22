@@ -9,7 +9,7 @@ import { ImagePicker} from '@ant-design/react-native';
 import {launchImageLibrary} from 'react-native-image-picker';
 import { baseURL } from '../../config';
 import RNFetchBlob from 'rn-fetch-blob'
-import { convertHeic } from '../../utils/convertHeic';
+// import { convertHeic } from '../../utils/convertHeic';
 
 export interface IBImagePickerRef {
   getPics: () => Promise<string[]>;
@@ -110,7 +110,7 @@ const BImagePicker: ForwardRefRenderFunction<IBImagePickerRef, IBImagePickerProp
   }));
 
   return (
-    <View style={{marginTop: 20, marginLeft: 20, marginRight: 20 }}>
+    <View style={{marginTop: 20, marginLeft: 0, marginRight: 0 }}>
       <ImagePicker
         onChange={handleFileChange}
         files={files}
