@@ -1,20 +1,20 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import {RootStackNavigation} from '@/navigator';
-import PublishTopic, { IPublishTopicRef } from './PublishTopic';
+import PublishTopic, {IPublishTopicRef} from './PublishTopic';
 import BNPage from '@/components/BPage/BNPage';
 import BText from '@/components/BText';
 import {IconIosArrowRoundBack} from '@/assets/iconfont';
 import BHStack from '@/components/BHStack';
 import MTouchableOpacity from '@/components/MTouchableOpacity';
-import { Button } from 'native-base';
-import { IDemandData, PublishContext } from './context';
+import {Button} from 'native-base';
+import {IDemandData, PublishContext} from './utils/context';
 
 type IProps = {
   navigation: RootStackNavigation;
 };
 
-const PublishScreen: React.FC<IProps> = ({ navigation }) => {
+const PublishScreen: React.FC<IProps> = ({navigation}) => {
   const goBack = () => navigation.goBack();
   const dRef = React.useRef<IPublishTopicRef>(null);
 
@@ -25,22 +25,24 @@ const PublishScreen: React.FC<IProps> = ({ navigation }) => {
   });
 
   const setIndex = (index: number) => {
-    setState(prev => ({ ...prev, tabIndex: index }))
-  }
+    setState(prev => ({...prev, tabIndex: index}));
+  };
 
   const [demand, setDemand] = useState<IDemandData>({
     title: '',
     content: '',
-    pics: []
-  })
+    pics: [],
+  });
 
   const sbmBtn = (
-    <Button variant="ghost" onPress={() => {
-      dRef.current?.submit()
-    }}>
+    <Button
+      variant="ghost"
+      onPress={() => {
+        dRef.current?.submit();
+      }}>
       <BText>发布</BText>
     </Button>
-  )
+  );
 
   const renderTitle = () => {
     return (
@@ -51,17 +53,23 @@ const PublishScreen: React.FC<IProps> = ({ navigation }) => {
           onPress={goBack}
           size={30}
         />
-        <View style={{flex: 1, flexDirection: 'row', height: '100%', justifyContent: 'center'}}>
-          <BHStack style={{ height: '100%'}}>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: 'row',
+            height: '100%',
+            justifyContent: 'center',
+          }}>
+          <BHStack style={{height: '100%'}}>
             <MTouchableOpacity onPress={() => setIndex(0)}>
-              <BHStack style={{position: 'relative', alignItems: 'center', height: 40 }}>
+              <BHStack style={styles.box}>
                 <BText>需求</BText>
                 {state.tabIndex === 0 && <View style={styles.line}></View>}
               </BHStack>
             </MTouchableOpacity>
-            <View style={{ width: 30 }}></View>
+            <View style={{width: 30}}></View>
             <MTouchableOpacity onPress={() => setIndex(1)}>
-              <BHStack style={{position: 'relative', alignItems: 'center', height: 40 }}>
+              <BHStack style={styles.box}>
                 <BText style={{textAlign: 'center'}}>帖子</BText>
                 {state.tabIndex === 1 && <View style={styles.line}></View>}
               </BHStack>
@@ -74,26 +82,24 @@ const PublishScreen: React.FC<IProps> = ({ navigation }) => {
   };
 
   return (
-    <PublishContext.Provider value={{
-      ...state,
-      demand,
-      setIndex,
-      setDemand: (data) => {
-        setDemand(data)
-      }
-    }}>
+    <PublishContext.Provider
+      value={{
+        ...state,
+        demand,
+        setIndex,
+        setDemand: data => {
+          setDemand(data);
+        },
+      }}>
       <BNPage
-        navBarOptions={{
-          showNavBar: false,
-          showBack: false,
-        }}
+        navBarOptions={{showNavBar: false, showBack: false}}
         style={styles.screen}>
         {renderTitle()}
         <PublishTopic ref={dRef} />
       </BNPage>
     </PublishContext.Provider>
-  )
-}
+  );
+};
 
 export default PublishScreen;
 
@@ -121,5 +127,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     paddingRight: 6,
+  },
+  box: {
+    position: 'relative',
+    alignItems: 'center',
+    height: 40,
   }
 });

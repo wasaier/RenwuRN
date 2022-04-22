@@ -16,7 +16,8 @@ import BInput from '@/components/BInput';
 import BImagePicker, {IBImagePickerRef} from '@/components/BImagePicker';
 import BTextArea from '@/components/BTextArea';
 import Theme from '@/utils/theme';
-import {PublishContext} from '../context';
+import {PublishContext} from '../utils/context';
+import { Toast } from '@ant-design/react-native';
 
 export interface IPublishTopicRef {
   submit: () => void;
@@ -37,19 +38,23 @@ const PublishTopic: ForwardRefRenderFunction<IPublishTopicRef> = (_, ref) => {
   };
 
   const submit = async () => {
-    Alert.alert(JSON.stringify(context?.demand))
-    // setLoading(true);
-    // try {
-    //   const pics = (await imagePickerRef.current?.getPics()) || [];
-    //   const r = await FeedAPI.addFeed({
-    //     ...context?.demand,
-    //     pics: pics.map(it => it).join(','),
-    //   });
-    //   clearForm();
-    // } catch (e) {
-    //   console.log(`submit_topic`, e);
-    // }
-    // setLoading(false);
+    const s = Toast.loading({
+      content: '加载中',
+      duration: 0
+    });
+    try {
+      const pics = (await imagePickerRef.current?.getPics()) || [];
+      const r = await FeedAPI.addFeed({
+        ...context?.demand,
+        pics: pics.map(it => it).join(','),
+      });
+      console.log(r);
+      clearForm();
+    } catch (e) {
+      console.log(`submit_topic`, e);
+    }
+    Toast.remove(s);
+    // Toast.success({ content: '发布成功' })
   };
 
   useImperativeHandle(ref, () => {
@@ -68,6 +73,13 @@ const PublishTopic: ForwardRefRenderFunction<IPublishTopicRef> = (_, ref) => {
     };
   };
 
+  const clearTitle = () => {
+    context?.setDemand({
+      ...context.demand,
+      title: '',
+    })
+  }
+
   return (
     <View
       style={{
@@ -77,12 +89,7 @@ const PublishTopic: ForwardRefRenderFunction<IPublishTopicRef> = (_, ref) => {
       }}>
       <View style={{marginTop: 10}}>
         <BInput
-          onClear={() =>
-            context?.setDemand({
-              ...context.demand,
-              title: '',
-            })
-          }
+          onClear={clearTitle}
           placeholder="标题"
           value={context?.demand.title}
           onChange={setFiledValue('title')}

@@ -7,6 +7,7 @@ import PublishScreen from './pages/publish';
 import Demo from './demos/ImagePicker';
 import DemoElements from './demos/Element';
 import { NativeBaseProvider, extendTheme } from 'native-base';
+import { Provider } from '@ant-design/react-native';
 
 const theme = extendTheme({
   colors: {
@@ -49,19 +50,22 @@ export default function App() {
   if (!initial) return null;
 
   return (
+      
     <StoreContext.Provider value={rootStore}>
-      {/* <Demo /> */}
-      {/* <DemoElements /> */}
-      {/* <View style={{ height: 60 }}></View> */}
-      {/* <PublishDemo /> */}
-      <StatusBar
-        translucent
-        barStyle={'dark-content'}
-        backgroundColor="transparent"
-      />
-      <NativeBaseProvider theme={theme}>
-        <Navigator />
-      </NativeBaseProvider>
+      <Provider>
+        {/* <Demo /> */}
+        {/* <DemoElements /> */}
+        {/* <View style={{ height: 60 }}></View> */}
+        {/* <PublishDemo /> */}
+        <StatusBar
+          translucent
+          barStyle={'dark-content'}
+          backgroundColor="transparent"
+        />
+        <NativeBaseProvider theme={theme}>
+          <Navigator />
+        </NativeBaseProvider>
+      </Provider>
     </StoreContext.Provider>
   );
 }
