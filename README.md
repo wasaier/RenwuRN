@@ -58,16 +58,13 @@ cd android && ./gradlew assembleRelease
 :-----:|:-----:|:-----:
 ![](./screenshots/01-welcome.png) | ![](./screenshots/02-index.png) | ![](./screenshots/03-rank.png)
 
-<div style="width: 2400px">
-  <img width=300 src="./screenshots/01-welcome.png">
-  <img width=300 src="./screenshots/02-index.png">
-  <img width=300 src="./screenshots/03-rank.png">
-  <img width=300 src="./screenshots/04-find.png">
-  <img width=300 src="./screenshots/05-FindDetail.png">
-  <img width=300 src="./screenshots/06-me.png">
-  <img width=300 src="./screenshots/07-login.png">
-  <img width=300 src="./screenshots/08-setting.png">
-</div>
+发现  | 动态详情 | 我的
+:-----:|:-----:|:-----:
+![](./screenshots/04-find.png) | ![](./screenshots/05-FindDetail.png) | ![](./screenshots/06-me.png)
+
+登录  | 设置
+:-----:|:-----:
+![](./screenshots/07-login.png) | ![](./screenshots/08-setting.png)
 
 ### 4、code push
 ```bash
