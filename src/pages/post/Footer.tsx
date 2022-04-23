@@ -109,10 +109,7 @@ const ProjectFooter: React.FC<IProps> = ({itemId}) => {
 
       <View style={styles.right}>
         <TouchableWithoutFeedback style={styles.submitBtn}>
-          <Text style={styles.btnText}>说点什么</Text>
-        </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback style={styles.submitBtn}>
-          <Text style={styles.btnText}>私聊</Text>
+          <Text style={styles.btnText}>向他咨询</Text>
         </TouchableWithoutFeedback>
       </View>
     </View>
@@ -144,7 +141,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     borderRadius: 14,
     paddingHorizontal: 10,
-    backgroundColor: Theme.primaryColor,
+    backgroundColor: '#333'
   },
   btnText: {
     color: '#fff',
