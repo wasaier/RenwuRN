@@ -16,3 +16,10 @@ export interface IProject {
   enrollList: any[];
   updateTime: string;
 }
+
+export interface IProjectForm {
+  title: string;
+  reward: string;
+  requires: string;
+  description: string;
+}

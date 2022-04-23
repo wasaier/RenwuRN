@@ -2,7 +2,7 @@ import {request} from '../config/axios';
 import {IComment} from '../types/Comment';
 import {IEnroll} from '../types/Enroll';
 import {PageInfo} from '../types/IPageInfo';
-import {IProject} from '../types/Project';
+import {IProject, IProjectForm} from '../types/Project';
 import {IProjectCategory} from '../types/ProjectCategory';
 import {ResBase} from '../types/RespBase';
 import {qs} from '../utils/request';
@@ -105,6 +105,14 @@ const ProjectAPI = {
       url: `/collect/status?${qs(query)}`,
       data: { itemId: projectId }
     }) as unknown as Promise<ResBase<IComment>>;
+  },
+
+  createProject (params: IProjectForm) {
+    return request<ResBase<IProject>>({
+      url: '/demand',
+      method: 'POST',
+      data: params
+    })
   }
 };
 

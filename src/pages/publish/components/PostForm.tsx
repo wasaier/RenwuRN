@@ -14,14 +14,14 @@ import BInput from '@/components/BInput';
 import BImagePicker, {IBImagePickerRef} from '@/components/BImagePicker';
 import BTextArea from '@/components/BTextArea';
 import Theme from '@/utils/theme';
-import {IDemandData, PublishContext} from '../utils/context';
+import {IPostData, PublishContext} from '../utils/context';
 
-export interface IDemandFormRef {
-  getParams: () => Promise<IDemandData>;
+export interface IPostFormRef {
+  getParams: () => Promise<IPostData>;
   clearPics: () => void;
 }
 
-const DemandForm: ForwardRefRenderFunction<IDemandFormRef> = (_, ref) => {
+const PostForm: ForwardRefRenderFunction<IPostFormRef> = (_, ref) => {
   const imagePickerRef = useRef<IBImagePickerRef>(null);
   const context = React.useContext(PublishContext);
 
@@ -30,60 +30,46 @@ const DemandForm: ForwardRefRenderFunction<IDemandFormRef> = (_, ref) => {
       getParams: async () => {
         const pics = (await imagePickerRef.current?.getPics()) || [];
         return {
-          ...context?.demand!,
-          pics: pics.map(it => it),
-        };
+          ...context?.postData,
+          pics: pics.map(it => it)
+        }
       },
       clearPics: () => {
         imagePickerRef.current?.setPics([]);
-      },
+      }
     };
   });
 
   const setFiledValue = (filedName: string) => {
     return function (e: NativeSyntheticEvent<TextInputChangeEventData>) {
       const text = e.nativeEvent.text;
-      context?.setDemand({
-        ...context.demand,
+      context?.setPostData({
+        ...context.postData,
         [filedName]: text,
       });
     };
   };
 
-  const clearFieldValue = (key: string) => {
-    return function () {
-      context?.setDemand({
-        ...context.demand,
-        [key]: ''
-      })
-    }
+  const clearTitle = () => {
+    context?.setPostData({
+      ...context.postData,
+      title: '',
+    })
   }
 
   return (
     <View style={styles.wrapper}>
       <View style={{marginTop: 10}}>
         <BInput
+          onClear={clearTitle}
           placeholder="标题"
-          value={context?.demand.title}
+          value={context?.postData.title}
           onChange={setFiledValue('title')}
-          onClear={clearFieldValue('title')}
-        />
-        <BInput
-          placeholder="悬赏金额"
-          value={`${context?.demand.reward}`}
-          onChange={setFiledValue('reward')}
-          onClear={clearFieldValue('reward')}
-        />
-        <BInput
-          placeholder="技能要求"
-          value={context?.demand.requires}
-          onChange={setFiledValue('requires')}
-          onClear={clearFieldValue('requires')}
         />
         <BTextArea
           placeholder="描述"
-          value={context?.demand.description}
-          onChange={setFiledValue('description')}
+          value={context?.postData.content}
+          onChange={setFiledValue('content')}
         />
         <BImagePicker ref={imagePickerRef} />
       </View>
@@ -91,12 +77,12 @@ const DemandForm: ForwardRefRenderFunction<IDemandFormRef> = (_, ref) => {
   );
 };
 
-export default forwardRef(DemandForm);
+export default forwardRef(PostForm);
 
 const styles = StyleSheet.create({
   wrapper: {
     paddingHorizontal: 10,
     flex: 1,
     backgroundColor: Theme.borderColor,
-  },
-});
+  }
+})
