@@ -50,13 +50,8 @@ export default function App() {
   if (!initial) return null;
 
   return (
-      
     <StoreContext.Provider value={rootStore}>
       <Provider>
-        {/* <Demo /> */}
-        {/* <DemoElements /> */}
-        {/* <View style={{ height: 60 }}></View> */}
-        {/* <PublishDemo /> */}
         <StatusBar
           translucent
           barStyle={'dark-content'}

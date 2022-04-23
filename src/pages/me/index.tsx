@@ -2,19 +2,19 @@ import React, {useEffect} from 'react';
 import {View, StyleSheet, ScrollView, Image} from 'react-native';
 import {observer} from 'mobx-react';
 import type {CompositeScreenProps} from '@react-navigation/native';
-import {BottomTabParamList} from '../../navigator/BottomTabs';
-import {RootStackParamList} from '../../navigator';
+import {BottomTabParamList} from '@/navigator/BottomTabs';
+import {RootStackParamList} from '@/navigator';
 import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
 import type {StackScreenProps} from '@react-navigation/stack';
-import {useStore} from '../../model';
+import {useStore} from '@/model';
 import UserBanner from './UserBanner';
 import UserAssets from './UserAssets';
-import BListItem from '../../components/BListItem';
-import {IconSetting} from '../../assets/iconfont';
+import BListItem from '@/components/BListItem';
+import {IconSetting} from '@/assets/iconfont';
 import LinearGradient from 'react-native-linear-gradient';
-import MTouchableOpacity from '../../components/MTouchableOpacity';
-import {TopInsertView} from '../../components/BPage/BNavBar';
-import BNPage from '../../components/BPage/BNPage';
+import MTouchableOpacity from '@/components/MTouchableOpacity';
+import {TopInsertView} from '@/components/BPage/BNavBar';
+import BNPage from '@/components/BPage/BNPage';
 
 type IMeScreenProps = CompositeScreenProps<
   BottomTabScreenProps<BottomTabParamList, 'Me'>,

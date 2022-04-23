@@ -5,12 +5,11 @@ import {
 } from '@react-navigation/bottom-tabs';
 import {RouteProp} from '@react-navigation/native';
 import {RootStackNavigation, RootStackParamList} from '.';
-import TabBarIcon from '../components/TabBarIcon';
 
-import FindScreen from '../pages/find';
-import ChatScreen from '../pages/chat';
-import HomeScreen from '../pages/home';
-import MeScreen from '../pages/me';
+import FindScreen from '@/pages/find';
+import ChatScreen from '@/pages/chat';
+import HomeScreen from '@/pages/home';
+import MeScreen from '@/pages/me';
 import {
   IconAccount,
   IconAccountOutline,
@@ -20,7 +19,7 @@ import {
   IconHomeO,
   IconMessage,
   IconMessageO,
-} from '../assets/iconfont';
+} from '@/assets/iconfont';
 import {MyTabBar} from './MTabbar';
 
 export type BottomTabParamList = {

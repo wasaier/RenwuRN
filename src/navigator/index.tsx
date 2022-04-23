@@ -7,20 +7,20 @@ import {
 import { NavigationContainer, NavigatorScreenParams } from '@react-navigation/native';
 
 import MainTabScreen, { BottomTabParamList } from './BottomTabs';
-import LoginScreen from '../pages/me/login';
-import SearchScreen from '../pages/search';
-import RankScreen from '../pages/rank';
-import ProjectScreen from '../pages/project';
-import H5Screen from '../pages/h5';
-import PostScreen from '../pages/post';
-import PublishScreen from '../pages/publish'
-import ScanScreen from '../pages/scan';
-import AboutUs from '../pages/settings/about-us';
-import AboutAuthor from '../pages/settings/about-author';
-import SettingScreen from '../pages/settings';
-import WelcomeScreen from '../pages/welcome';
+import LoginScreen from '@/pages/me/login';
+import SearchScreen from '@/pages/search';
+import RankScreen from '@/pages/rank';
+import ProjectScreen from '@/pages/project';
+import H5Screen from '@/pages/h5';
+import PostScreen from '@/pages/post';
+import PublishScreen from '@/pages/publish'
+import ScanScreen from '@/pages/scan';
+import AboutUs from '@/pages/settings/about-us';
+import AboutAuthor from '@/pages/settings/about-author';
+import SettingScreen from '@/pages/settings';
+import WelcomeScreen from '@/pages/welcome';
 import { observer } from 'mobx-react';
-import { useStore } from '../model';
+import { useStore } from '@/model';
 
 export type RootStackParamList = {
   MainTab: NavigatorScreenParams<BottomTabParamList>;
