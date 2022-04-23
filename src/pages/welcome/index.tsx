@@ -12,9 +12,9 @@ const WelcomeScreen: React.FC<IProps> = ({}) => {
   const {userStore} = useStore();
 
   useEffect(() => {
-    setTimeout(() => {
-      userStore.updateShowWelcome(false);
-    }, 2000)
+    // setTimeout(() => {
+    //   userStore.updateShowWelcome(false);
+    // }, 2000)
   }, [])
 
   return (

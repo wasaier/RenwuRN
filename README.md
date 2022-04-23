@@ -37,7 +37,6 @@ cd android && ./gradlew assembleRelease
 | [React-Native](https://reactnative.cn) | 开发基础 |
 | [react-navigation](https://reactnavigation.org) | 路由工具 |
 | [async-storage](https://react-native-async-storage.github.io/async-storage/) | 本地存储 |
-| React Native Elements | UI kit | 
 | mobx | 状态管理 |
 | dva | 状态管理 |
 | react-native-config | build env |
@@ -78,4 +77,4 @@ code-push deployment ls RenwuAndroid
 
 ### 5、Issues
 
-- Unrecognized font family 'antoutline'
+- [x] IOS Unrecognized font family 'antoutline'
