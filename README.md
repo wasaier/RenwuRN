@@ -1,6 +1,8 @@
 ## RenwuRN
 语契移动端
 
+- [安卓版本体验下载](./release/app-release.apk)
+
 ### 1. 本地开发
 
 ```shell
