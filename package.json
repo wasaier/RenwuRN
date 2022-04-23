@@ -1,6 +1,6 @@
 {
   "name": "renwurnts",
-  "version": "0.0.9",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "android": "react-native run-android",

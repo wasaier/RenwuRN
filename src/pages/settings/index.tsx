@@ -1,5 +1,4 @@
 import BText from '@/components/BText';
-import {appVersion} from '@/config';
 import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
 import {CompositeScreenProps} from '@react-navigation/native';
 import {StackScreenProps} from '@react-navigation/stack';
@@ -11,6 +10,8 @@ import {useStore} from '../../model';
 import {RootStackParamList} from '../../navigator';
 import {BottomTabParamList} from '../../navigator/BottomTabs';
 import {checkForUpdate} from './utils/checkForUpdate';
+
+const { version } = require('../../../package.json');
 
 type IMeScreenProps = CompositeScreenProps<
   BottomTabScreenProps<BottomTabParamList, 'Me'>,
@@ -38,7 +39,7 @@ const SettingScreen: React.FC<IMeScreenProps> = ({navigation}) => {
         }}></BListItem>
       <BListItem
         border={true}
-        value={<BText>{appVersion}</BText>}
+        value={<BText>{version}</BText>}
         title={`检查更新`}
         onPress={() => {
           checkForUpdate();

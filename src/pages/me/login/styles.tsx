@@ -6,17 +6,15 @@ const styles = StyleSheet.create({
     position: 'relative',
     flex: 1,
     backgroundColor: '#f5f5f5',
-    // backgroundColor: 'blue'
   },
   btn_close: {
     zIndex: 5,
     position: 'absolute',
     left: 10,
     top: 50,
-    color: theme.primaryColor,
+    color: '#333',
     width: 30,
     height: 30,
-    // backgroundColor: 'red'
   },
   cardBox: {
     display: 'flex',
@@ -55,7 +53,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
     borderRadius: 2,
-    backgroundColor: theme.primaryColor,
+    backgroundColor: '#333',
   },
   tipWrapper: {
     flex: 1,

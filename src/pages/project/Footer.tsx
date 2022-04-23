@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     borderRadius: 14,
     paddingHorizontal: 10,
-    backgroundColor: Theme.primaryColor,
+    backgroundColor: '#333'
   },
   btnText: {
     color: '#fff',
