@@ -9,6 +9,25 @@ import DemoElements from './demos/Element';
 import { NativeBaseProvider, extendTheme } from 'native-base';
 import { Provider } from '@ant-design/react-native';
 
+import * as IMLib from '@rongcloud/react-native-imlib'
+import * as CallLib from '@rongcloud/react-native-calllib'
+
+// CallLib.init();
+IMLib.init('mgb7ka1nm70ng');
+
+IMLib.connect('4YVYJE8r54CwrJ/Vqn1ckjjKG1RvVyEr@cpq8.cn.rongnav.com;cpq8.cn.rongcfg.com', (userId) => {
+  console.log('IM连接成功 userId ->' + userId)
+}, (code) => {
+  console.log('连接失败  code -> ' + code)
+}, () => {
+  console.log('111')
+})
+
+CallLib.onCallReceived((session) => {
+  // 在此可设置来电时的视图
+  console.log('call')
+})
+
 const theme = extendTheme({
   colors: {
     // Add new color
