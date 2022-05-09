@@ -7266,6 +7266,11 @@ react-is@^17.0.1, react-is@^17.0.2:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
+react-native-agora@^3.6.2:
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/react-native-agora/-/react-native-agora-3.6.2.tgz#6d677d7d933c16e3ddc515df1b07cc3870fe2079"
+  integrity sha512-gmiNVowS9XsRoleDPwKDia0pQegDzlyT2WSTj/BymXeEchBR8DCcNbDY5D/rXVY7DG2o/7eRh3/qN+cMRj8+Uw==
+
 react-native-camera@^4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/react-native-camera/-/react-native-camera-4.2.1.tgz#caf74081f055e89d7e9b0cd5108965d808c60e90"

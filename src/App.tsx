@@ -9,6 +9,9 @@ import DemoElements from './demos/Element';
 import { NativeBaseProvider, extendTheme } from 'native-base';
 import { Provider } from '@ant-design/react-native';
 
+import RtcEngine from 'react-native-agora';
+RtcEngine.create('a5d3ea81d7c946bc8ba0a0a17bd43eda');
+
 const theme = extendTheme({
   colors: {
     // Add new color
